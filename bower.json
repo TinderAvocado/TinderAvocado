@@ -1,0 +1,17 @@
+{
+  "name": "TinderAvocado",
+  "version": "0.0.0",
+  "homepage": "https://github.com/TinderAvocado/TinderAvocado",
+  "authors": [
+    "Sebas Oliva <s.oliva.pujol@gmail.com>"
+  ],
+  "main": "spark_html.html",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
