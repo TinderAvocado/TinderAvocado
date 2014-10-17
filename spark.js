@@ -61,8 +61,27 @@ var findLocation = function() {
 }
 
 var geoQ = new TinderQuery();
-var geoLocateButton = popQ.querySelector('#geolocate');
+var geoLocateButton = geoQ.querySelector('#geolocate');
 geoLocateButton.on('click', findLocation);
 
 
 
+var notifyMe = function() {
+	var addressData = "";
+	TinderAjax.getJSON("https://maps.googleapis.com/maps/api/geocode/json?latlng=41.3960437,2.1936372", function(data) {
+    	addressData = data.results[0].formatted_address;
+    	
+		var options = {
+			icon: "https://maps.googleapis.com/maps/api/staticmap?center=41.3960437,2.1936372&zoom=12&size=100x100",
+			body: addressData
+		};
+	    var notifyMe = TinderNotification.getInstance();
+		notifyMe.notify("Current Address", options);
+	});
+
+
+}
+
+var notQ = new TinderQuery();
+var notifyButton = notQ.querySelector('#notify');
+notifyButton.on('click', notifyMe)
