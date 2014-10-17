@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/TinderAvocado/TinderAvocado/issues"
   },
-  "homepage": "https://github.com/TinderAvocado/TinderAvocado"
+  "homepage": "https://github.com/TinderAvocado/TinderAvocado",
+  "devDependencies": {
+    "grunt": "^0.4.5"
+  }
 }
