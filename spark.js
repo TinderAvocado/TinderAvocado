@@ -7,8 +7,8 @@ var makeAjaxCall = function() {
 
 var locationData = [];
 
-q = new TinderQuery();
-var ajaxButton = q.querySelector('#ajax');
+ajaxQ = new TinderQuery();
+var ajaxButton = ajaxQ.querySelector('#ajax');
 ajaxButton.on('click', makeAjaxCall);
 
 
@@ -27,9 +27,9 @@ var saveToStorage = function(){
 	saveButton.after("<span> Success!</span>");
 };
 
-
+saveQ = new TinderQuery();
 var storageData = TinderStorage.getInstance();
-var saveButton = q.querySelector('#save');
+var saveButton = saveQ.querySelector('#save');
 saveButton.on('click', saveToStorage);
 
 var populateList = function(){
@@ -40,10 +40,13 @@ var populateList = function(){
 	for (var i = 0; i < arrayLength; i++){
 		locationList.append("<li>" + locationData[i].name + ": " + locationData[i].description + " " + "</li>");
 	};
-
+	saveButton.after("<span> Success!</span>");
 };
-var locationList = q.querySelector('#list');
-var populateButton = q.querySelector('#populate');
+
+locQ = new TinderQuery();
+popQ = new TinderQuery();
+var locationList = locQ.querySelector('#list');
+var populateButton = popQ.querySelector('#populate');
 populateButton.on('click', populateList);
 
 
