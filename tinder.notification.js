@@ -7,7 +7,7 @@
  *      body: "Body text"
  *    }
  *    var notification = TinderNotification.getInstance();
- *    notification.notificate("Title", options);
+ *    notification.notify("Title", options);
  *
  */
 
@@ -15,7 +15,7 @@ var TinderNotification = (function(){
   var instance;
 
   function Singleton() {
-    this.notificate = function(message, options) {
+    this.notify = function(message, options) {
       if(Notification.permission !== "denied") {
         Notification.requestPermission(function(permission) {
           if(permission === "granted") {
