@@ -49,6 +49,20 @@ var locationList = locQ.querySelector('#list');
 var populateButton = popQ.querySelector('#populate');
 populateButton.on('click', populateList);
 
+var myCoords = {};
+
+var findLocation = function() {
+	var myLocation = new TinderGeolocation();
+	myLocation.geolocate(function(coords) {
+		myCoords["latitude"] = coords.latitude;
+		myCoords["longitude"] = coords.longitude;
+  });
+  geoLocateButton.after("<span> Success!</span>");
+}
+
+var geoQ = new TinderQuery();
+var geoLocateButton = popQ.querySelector('#geolocate');
+geoLocateButton.on('click', findLocation);
 
 
 
