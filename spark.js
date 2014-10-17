@@ -20,7 +20,7 @@ var saveToStorage = function(){
 	var arrayLength = locationData.length;
 	for (var i = 0; i < arrayLength; i++){
 		var key = locationData[i].name;
-		var locationInfo = locationData[i];
+		var locationInfo = Object.create(locationData[0]);
 		delete locationInfo["name"];
 		storageData.create(key, locationInfo);
 	};
@@ -31,4 +31,21 @@ var saveToStorage = function(){
 var storageData = TinderStorage.getInstance();
 var saveButton = q.querySelector('#save');
 saveButton.on('click', saveToStorage);
+
+var populateList = function(){
+	if (locationData.length === 0){
+		throw new Error("No data in local Storage.");
+	};
+	var arrayLength = locationData.length;
+	for (var i = 0; i < arrayLength; i++){
+		locationList.append("<li>" + locationData[i].name + ": " + locationData[i].description + " " + "</li>");
+	};
+
+};
+var locationList = q.querySelector('#list');
+var populateButton = q.querySelector('#populate');
+populateButton.on('click', populateList);
+
+
+
 
